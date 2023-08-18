@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Список стран -->
+<grammar xml:lang="ru-RU" root="root" mode="voice" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" tag-format="semantics/1.0-literals">
+
+	<rule id="root" scope="public">
+		<one-of>
+			<!--item>абхазия<tag>Abkhazia</tag></item-->
+			<item>австралия<tag>Australia</tag></item>
+			<item>австрия<tag>Austia</tag></item>
+			<item>азербайджан<tag>Azerbaidjan</tag></item>
+			<item>албания<tag>Albania</tag></item>
+			<item>алжир<tag>Aljir</tag></item>
+			<item>ангилья<tag>Angilia</tag></item>
+			<item>ангуилла<tag>Angilia</tag></item>
+			<item>ангола<tag>Angola</tag></item>
+			<item>андорра<tag>Andorra</tag></item>
+			<item>барбуда<tag>Antigua</tag></item>
+			<item >антигуа<tag>Antigua</tag></item>
+			<item>аргентина<tag>Argentina</tag></item>
+			<item>армения<tag>Armenia</tag></item>
+			<item><token>остров аруба</token><tag>Aruba</tag></item>
+			<item>аруба<tag>Aruba</tag></item>
+			<item>афганистан<tag>Afganistan</tag></item>
+			<item>бангладеш<tag>Bangladesh</tag></item>
+			<item>барбадос<tag>Barbados</tag></item>
+			<item>барбадос<tag>Barbados</tag></item>
+			<item>бахрейн<tag>Bahrein</tag></item>
+			<item>беларусь<tag>Belorus</tag></item>
+			<item>белоруссия<tag>Belorus</tag></item>
+			<item>бельгия<tag>Belgia</tag></item>
+			<item>бенин<tag>Benin</tag></item>
+			<item><token>берег слоновой кости</token><tag>KotDivuar</tag></item>
+			<item>кот дивуар<tag>KotDivuar</tag></item>
+			<item><token>бермудские острова</token><tag>Bermudy</tag></item>
+			<item>бермуды<tag>Bermudy</tag></item>
+			<item>болгария<tag>Bolgaria</tag></item>
+			<item>боливия<tag>Bolivia</tag></item>
+			<item><token>босния и герцеговина</token><tag>Bosnia</tag></item>
+			<item>герцеговина<tag>Bosnia</tag></item>
+			<item>босния<tag>Bosnia</tag></item>
+			<item>ботсвана<tag>Botsvana</tag></item>
+			<item>бразилия<tag>Brasilia</tag></item>
+			<item><token>британские виргинские острова</token><tag>Virginskie</tag></item>
+			<item>бруней<tag>Brunei</tag></item>
+			<item><token>буркина фасо</token><tag>BurkinaFaso</tag></item>
+			<item>бурунди<tag>Burundi</tag></item>
+			<item>бутан<tag>Butan</tag></item>
+			<item>вануату<tag>Vanuatu</tag></item>
+			<item>ватикан<tag>Vatikan</tag></item>
+			<item>великобритания<tag>Velikobritania</tag></item>
+			<item>англия<tag>Velikobritania</tag></item>
+			<item>венгрия<tag>Vengria</tag></item>
+			<item>венесуэла<tag>Venesuela</tag></item>
+			<item><token>виргинские острова</token><tag>VirginskieOstrova</tag></item>
+			<item>вьетнам<tag>Vietnam</tag></item>
+			<item>габон<tag>Gabon</tag></item>
+			<item>гаити<tag>Gaiti</tag></item>
+			<item>гайана<tag>Gaiana</tag></item>
+			<item >гамбия<tag>Gambia</tag></item>
+			<item>гана<tag>Gana</tag></item>
+			<item>гваделупа<tag>Gvadelupa</tag></item>
+			<item>гватемала<tag>Gvatemala</tag></item>
+			<item>гвиана<tag>Gviana</tag></item>
+			<item>гвинея<tag>Gvinea</tag></item>
+			<item><token>гвинея-бисау</token><tag>GvineaBisau</tag></item>
+			<item>германия<tag>Germania</tag></item>
+			<item>гернси<tag>Gernsi</tag></item>
+			<item>гибралтар<tag>Gibraltar</tag></item>
+			<item>гондурас<tag>Gonduras</tag></item>
+			<item>гонконг<tag>Gonkong</tag></item>
+			<item>гренада<tag>Grenada</tag></item>
+			<item>гренландия<tag>Grenlandia</tag></item>
+			<item >греция<tag>Grecia</tag></item>
+			<item>грузия<tag>Georgia</tag></item>
+			<item>гуам<tag>Guam</tag></item>
+			<item>дания<tag>Dania</tag></item>
+			<item>дезирад<tag>Dezirad</tag></item>
+			<item>джерси<tag>Djersi</tag></item>
+			<item >доминика<tag>Dominika</tag></item>
+			<item><token>доминиканская республика</token><tag>DominikanskayaRespublika</tag></item>
+			<item>египет<tag>Egipt</tag></item>
+			<item>зимбабве<tag>Zimbabve</tag></item>
+			<item>тунис<tag>Tunis</tag></item>
+			<item>туркменистан<tag>Turkmenistan</tag></item>
+			<item>турция<tag>Turkey</tag></item>
+			<item>уганда<tag>Uganda</tag></item>
+			<item>узбекистан<tag>Uzbekistan</tag></item>
+			<item>украина<tag>Ukraine</tag></item>
+			<item>уругвай<tag>Uruguay</tag></item>
+			<item><token>фарерские острова</token><tag>Faroe</tag></item>
+			<item>фиджи<tag>Fiji</tag></item>
+			<item>филиппины<tag>Philippines</tag></item>
+			<item>финляндия<tag>Finland</tag></item>
+			<item>франция<tag>France</tag></item>
+			<item><token>французская полинезия</token><tag>FrenchPolinesia</tag></item>
+			<item>хорватия<tag>Croatia</tag></item>
+			<item><token>центрально-африканская республика</token><tag>CAR</tag></item>
+			<item>чад<tag>Chad</tag></item>
+			<item>черногория<tag>Montenegro</tag></item>
+			<item>чехия<tag>Czech Republic</tag></item>
+			<item>чили<tag>Chili</tag></item>
+			<item>швейцария<tag>Switzerland</tag></item>
+			<item>швеция<tag>Sweden</tag></item>
+			<item><token>шри-ланка</token><tag>SriLanka</tag></item>
+			<item>эквадор<tag>Ecuador</tag></item>
+			<item>эстония<tag>Estonia</tag></item>
+			<item>эфиопия<tag>Ethiopia</tag></item>
+			<item>ЮАР<tag>SAR</tag></item>
+			<item><token>южно-африканская республика</token><tag>SAR</tag></item>
+			<item><token>южная корея</token><tag>SouthKorea</tag></item>
+			<item>ямайка<tag>Jamaica</tag></item>
+			<item>япония<tag>Japan</tag></item>
+		</one-of>
+	</rule>
+</grammar>
