@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar 	type='application/srgs+xml'
+			version='1.0'
+			mode='voice'
+			root='card'
+			xml:lang="ru-RU"
+			xmlns="http://www.w3.org/2001/06/grammar"
+			tag-format="semantics/1.0">
+			
+    <rule id="card">
+        <item><ruleref uri="#series"/></item>
+        <!-- возвращение результата в subdialog -->
+        <tag>
+            out.card = rules.series;
+        </tag>
+    </rule>
+
+    <rule id="series">
+        <tag>out.x='';</tag>
+        <one-of>
+			<item>
+				<ruleref uri="#X_X_X_X"/>
+				<tag>out.x=rules.X_X_X_X.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#XX_XX"/>
+				<tag>out.x=rules.XX_XX.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#X_XX_X"/>
+				<tag>out.x=rules.X_XX_X.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#XX_X_X"/>
+				<tag>out.x=rules.XX_X_X.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#X_X_XX"/>
+				<tag>out.x=rules.X_X_XX.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#XXX_X"/>
+				<tag>out.x=rules.XXX_X.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#X_XXX"/>
+				<tag>out.x=rules.X_XXX.x;</tag>
+			</item>
+			<item>
+				<ruleref uri="#XXXX"/>
+				<tag>out.x=rules.XXXX.x;</tag>
+			</item>
+        </one-of>
+    </rule>
+	
+	<rule id="X_X_X_X">
+		<item>
+			<ruleref uri="#X"/>
+			<ruleref uri="#X1"/>
+			<ruleref uri="#X2"/>
+			<ruleref uri="#X3"/>
+			<tag>out.x=rules.X.x+rules.X1.x+rules.X2.x+rules.X3.x;</tag>
+		</item>
+	</rule>
+	
+	<rule id="XX_XX">
+		<item>
+			<ruleref uri="#XX"/>
+			<ruleref uri="#XX1"/>
+			<tag>out.x=rules.XX.x+rules.XX1.x;</tag>
+		</item>
+	</rule>
+ 
+     <rule id="X_XX_X">
+        <item>
+            <ruleref uri="#X"/>
+            <ruleref uri="#XX"/>
+            <ruleref uri="#X1"/>
+            <tag>out.x=rules.X.x+rules.XX.x+rules.X1.x;</tag>
+        </item>
+    </rule>
+
+    <rule id="XX_X_X">
+        <item>
+            <ruleref uri="#XX"/>
+            <ruleref uri="#X"/>
+            <ruleref uri="#X1"/>
+            <tag>out.x=rules.XX.x+rules.X.x+rules.X1.x;</tag>
+        </item>
+    </rule>
+
+    <rule id="X_X_XX">
+        <item>
+            <ruleref uri="#X"/>
+            <ruleref uri="#X1"/>
+            <ruleref uri="#XX"/>
+            <tag>out.x=rules.X.x+rules.X1.x+rules.XX.x;</tag>
+        </item>
+    </rule>
+
+    <rule id="XXX_X">
+        <item>
+            <ruleref uri="#XXX"/>
+            <ruleref uri="#X"/>
+            <tag>out.x=rules.XXX.x+rules.X.x;</tag>
+        </item>
+    </rule>
+
+    <rule id="X_XXX">
+        <item>
+            <ruleref uri="#X"/>
+            <ruleref uri="#XXX"/>
+            <tag>out.x=rules.X.x+rules.XXX.x;</tag>
+        </item>
+    </rule>
+ 
+    <rule id="X">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>
+                <ruleref uri="#digit10"/>
+                <tag>out.x=rules.digit10.x;</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit10_1"/>
+                <tag>out.x=rules.digit10_1.x;</tag>
+            </item>
+			<item>одна единица<tag>out.x='1';</tag></item>
+            <item>одна двойка<tag>out.x='2';</tag></item>
+            <item>одна тройка<tag>out.x='3';</tag></item>
+            <item>одна четверка<tag>out.x='4';</tag></item>
+            <item>одна пятерка<tag>out.x='5';</tag></item>
+            <item>одна шестерка<tag>out.x='6';</tag></item>
+            <item>одна семерка<tag>out.x='7';</tag></item>
+            <item>одна восьмерка<tag>out.x='8';</tag></item>
+            <item>одна девятка<tag>out.x='9';</tag></item>
+        </one-of>
+    </rule>
+    <rule id="X1">
+        <tag>out.x='';</tag>
+        <item>
+			<ruleref uri="#X"/>
+			<tag>out.x=rules.X.x;</tag>
+        </item>
+    </rule>
+    <rule id="X2">
+        <tag>out.x='';</tag>
+        <item>
+			<ruleref uri="#X"/>
+			<tag>out.x=rules.X.x;</tag>
+        </item>
+    </rule>
+    <rule id="X3">
+        <tag>out.x='';</tag>
+        <item>
+			<ruleref uri="#X"/>
+			<tag>out.x=rules.X.x;</tag>
+        </item>
+    </rule>
+	
+	
+    <rule id="XX">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>
+                <token>два нуля</token>
+                <tag>out.x='00';</tag>
+            </item>
+            <item>
+                <token>два ноля</token>
+                <tag>out.x='00';</tag>
+            </item>
+            <item>
+                <token>две единицы</token>
+                <tag>out.x='11';</tag>
+            </item>
+            <item>
+                <token>две двойки</token>
+                <tag>out.x='22';</tag>
+            </item>
+            <item>
+                <token>две тройки</token>
+                <tag>out.x='33';</tag>
+            </item>
+            <item>
+                <token>две четверки</token>
+                <tag>out.x='44';</tag>
+            </item>
+            <item>
+                <token>две пятерки</token>
+                <tag>out.x='55';</tag>
+            </item>
+            <item>
+                <token>две шестерки</token>
+                <tag>out.x='66';</tag>
+            </item>
+            <item>
+                <token>две семерки</token>
+                <tag>out.x='77';</tag>
+            </item>
+            <item>
+                <token>две восьмерки</token>
+                <tag>out.x='88';</tag>
+            </item>
+            <item>
+                <token>две девятки</token>
+                <tag>out.x='99';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit20"/>
+                <tag>out.x=rules.digit20.x;</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit30"/>
+                <tag>out.x=rules.digit30.x+'0';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit30"/>
+                <ruleref uri="#digit10_0"/>
+                <tag>out.x=rules.digit30.x+rules.digit10_0.x;</tag>
+            </item>
+        </one-of>
+    </rule>
+    <rule id="XX1">
+        <tag>out.x='';</tag>
+		<item>
+			<ruleref uri="#XX"/>
+			<tag>out.x=rules.XX.x;</tag>
+		</item>
+    </rule>
+
+	
+    <rule id="XXX">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>
+                <token>три нуля</token>
+                <tag>out.x='000';</tag>
+            </item>
+            <item>
+                <token>три ноля</token>
+                <tag>out.x='000';</tag>
+            </item>
+            <item>
+                <token>три единицы</token>
+                <tag>out.x='111';</tag>
+            </item>
+            <item>
+                <token>три двойки</token>
+                <tag>out.x='222';</tag>
+            </item>
+            <item>
+                <token>три тройки</token>
+                <tag>out.x='333';</tag>
+            </item>
+            <item>
+                <token>три четверки</token>
+                <tag>out.x='444';</tag>
+            </item>
+            <item>
+                <token>три пятерки</token>
+                <tag>out.x='555';</tag>
+            </item>
+            <item>
+                <token>три шестерки</token>
+                <tag>out.x='666';</tag>
+            </item>
+            <item>
+                <token>три семерки</token>
+                <tag>out.x='777';</tag>
+            </item>
+            <item>
+                <token>три восьмерки</token>
+                <tag>out.x='888';</tag>
+            </item>
+            <item>
+                <token>три девятки</token>
+                <tag>out.x='999';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit100"/>
+                <tag>out.x=rules.digit100.x+'0'+'0';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit10_0"/>
+                <tag>out.x=rules.digit100.x+'0'+rules.digit10_0.x;</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit20"/>
+                <tag>out.x=rules.digit100.x+rules.digit20.x;</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit30"/>
+                <tag>out.x=rules.digit100.x+rules.digit30.x+'0';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit30"/>
+                <ruleref uri="#digit10_0"/>
+                <tag>out.x=rules.digit100.x+rules.digit30.x+rules.digit10_0.x;</tag>
+            </item>
+        </one-of>
+    </rule>
+    <rule id="XXX1">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>
+                <ruleref uri="#XXX"/>
+                <tag>out.x=rules.XXX.x;</tag>
+            </item>
+        </one-of>
+    </rule>
+    <rule id="XXXX">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>
+                <token>четыре нуля</token>
+                <tag>out.x='0000';</tag>
+            </item>
+            <item>
+                <token>четыре ноля</token>
+                <tag>out.x='0000';</tag>
+            </item>
+            <item>
+                <token>четыре единицы</token>
+                <tag>out.x='1111';</tag>
+            </item>
+            <item>
+                <token>четыре двойки</token>
+                <tag>out.x='2222';</tag>
+            </item>
+            <item>
+                <token>четыре тройки</token>
+                <tag>out.x='3333';</tag>
+            </item>
+            <item>
+                <token>четыре четверки</token>
+                <tag>out.x='4444';</tag>
+            </item>
+            <item>
+                <token>четыре пятерки</token>
+                <tag>out.x='5555';</tag>
+            </item>
+            <item>
+                <token>четыре шестерки</token>
+                <tag>out.x='6666';</tag>
+            </item>
+            <item>
+                <token>четыре семерки</token>
+                <tag>out.x='7777';</tag>
+            </item>
+            <item>
+                <token>четыре восьмерки</token>
+                <tag>out.x='8888';</tag>
+            </item>
+            <item>
+                <token>четыре девятки</token>
+                <tag>out.x='9999';</tag>
+            </item>
+            <item>
+                <ruleref uri="#digit1000"/>
+                <tag>out.x=rules.digit100.x+'0'+'0'+'0';</tag>
+            </item>
+            <item>
+				<ruleref uri="#digit1000"/>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit10_0"/>
+                <tag>out.x=rules.digit1000.x+rules.digit100.x+'0'+rules.digit10_0.x;</tag>
+            </item>
+            <item>
+				<ruleref uri="#digit1000"/>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit20"/>
+                <tag>out.x=rules.digit1000.x+digit100.x+rules.digit20.x;</tag>
+            </item>
+            <item>
+				<ruleref uri="#digit1000"/>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit30"/>
+                <tag>out.x=rules.digit1000.x+rules.digit100.x+rules.digit30.x+'0';</tag>
+            </item>
+            <item>
+				<ruleref uri="#digit1000"/>
+                <ruleref uri="#digit100"/>
+                <ruleref uri="#digit30"/>
+                <ruleref uri="#digit10_0"/>
+                <tag>out.x=rules.digit1000.x+rules.digit100.x+rules.digit30.x+rules.digit10_0.x;</tag>
+            </item>
+        </one-of>
+    </rule>
+    <rule id="digit10">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>ноль<tag>out.x='0';</tag></item>
+			<item>нуль<tag>out.x='0';</tag></item>
+            <item>один<tag>out.x='1';</tag></item>
+            <item>два<tag>out.x='2';</tag></item>
+            <item>три<tag>out.x='3';</tag></item>
+            <item>четыре<tag>out.x='4';</tag></item>
+            <item>пять<tag>out.x='5';</tag></item>
+            <item>шесть<tag>out.x='6';</tag></item>
+            <item>семь<tag>out.x='7';</tag></item>
+            <item>восемь<tag>out.x='8';</tag></item>
+            <item>девять<tag>out.x='9';</tag></item>	
+        </one-of>
+    </rule>
+	
+    <rule id="digit10_0">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>один<tag>out.x='1';</tag></item>
+            <item>два<tag>out.x='2';</tag></item>
+            <item>три<tag>out.x='3';</tag></item>
+            <item>четыре<tag>out.x='4';</tag></item>
+            <item>пять<tag>out.x='5';</tag></item>
+            <item>шесть<tag>out.x='6';</tag></item>
+            <item>семь<tag>out.x='7';</tag></item>
+            <item>восемь<tag>out.x='8';</tag></item>
+            <item>девять<tag>out.x='9';</tag></item>	
+        </one-of>
+    </rule>
+
+    <rule id="digit10_1">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>единица<tag>out.x='1';</tag>
+            </item>
+            <item>кол<tag>out.x='1';</tag>
+            </item>
+            <item>двойка<tag>out.x='2';</tag>
+            </item>
+            <item>тройка<tag>out.x='3';</tag>
+            </item>
+            <item>четверка<tag>out.x='4';</tag>
+            </item>
+            <item>пятерка<tag>out.x='5';</tag>
+            </item>
+            <item>шестерка<tag>out.x='6';</tag>
+            </item>
+            <item>семерка<tag>out.x='7';</tag>
+            </item>
+            <item>восьмерка<tag>out.x='8';</tag>
+            </item>
+            <item>девятка<tag>out.x='9';</tag>
+            </item>
+        </one-of>
+    </rule>
+    
+    <rule id="digit20">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>десять<tag>out.x='10';</tag></item>
+            <item>одиннадцать<tag>out.x='11';</tag></item>
+            <item weight="50.2">двенадцать<tag>out.x='12';</tag></item>
+            <item>тринадцать<tag>out.x='13';</tag></item>
+            <item>четырнадцать<tag>out.x='14';</tag></item>
+            <item>пятнадцать<tag>out.x='15';</tag></item>
+            <item>шестнадцать<tag>out.x='16';</tag></item>
+            <item>семнадцать<tag>out.x='17';</tag></item>
+            <item>восемнадцать<tag>out.x='18';</tag></item>
+            <item>девятнадцать<tag>out.x='19';</tag></item>
+        </one-of>
+    </rule>
+
+    <rule id="digit30">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>двадцать<tag>out.x='2';</tag></item>
+            <item>тридцать<tag>out.x='3';</tag></item>
+            <item>сорок<tag>out.x='4';</tag></item>
+            <item>пятьдесят<tag>out.x='5';</tag></item>
+            <item>шестьдесят<tag>out.x='6';</tag></item>
+            <item>семьдесят<tag>out.x='7';</tag></item>
+            <item>восемьдесят<tag>out.x='8';</tag></item>
+            <item>девяносто<tag>out.x='9';</tag></item>
+        </one-of>
+    </rule>
+
+    <rule id="digit100">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>сто<tag>out.x='1';</tag></item>
+            <item>двести<tag>out.x='2';</tag></item>
+            <item>триста<tag>out.x='3';</tag></item>
+            <item>четыреста<tag>out.x='4';</tag></item>
+            <item>пятьсот<tag>out.x='5';</tag></item>
+            <item>шестьсот<tag>out.x='6';</tag></item>
+            <item>семьсот<tag>out.x='7';</tag></item>
+            <item>восемьсот<tag>out.x='8';</tag></item>
+            <item>девятьсот<tag>out.x='9';</tag></item>
+        </one-of>
+    </rule>
+	
+    <rule id="thousand">
+        <one-of>
+            <item>тысяча</item>
+            <item>тысячи</item>
+            <item>тысяч</item>
+        </one-of>
+    </rule>
+
+    <rule id="digit1000">
+        <tag>out.x='';</tag>
+        <one-of>
+            <item>тысяча<tag>out.x='1';</tag></item>
+            <item>тыща<tag>out.x='1';</tag></item>
+			<item>одна<ruleref uri="#thousand"/><tag>out.x='1';</tag></item>
+            <item>две<ruleref uri="#thousand"/><tag>out.x='2';</tag></item> 
+            <item>три<ruleref uri="#thousand"/><tag>out.x='3';</tag></item> 
+            <item>четыре<ruleref uri="#thousand"/><tag>out.x='4';</tag></item> 
+            <item>пять<ruleref uri="#thousand"/><tag>out.x='5';</tag></item> 
+            <item>шесть<ruleref uri="#thousand"/><tag>out.x='6';</tag></item> 
+            <item>семь<ruleref uri="#thousand"/><tag>out.x='7';</tag></item> 
+            <item>восемь<ruleref uri="#thousand"/><tag>out.x='8';</tag></item> 
+            <item>девять<ruleref uri="#thousand"/><tag>out.x='9';</tag></item> 
+        </one-of>
+    </rule> 
+</grammar>
